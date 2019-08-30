@@ -43,24 +43,17 @@ window.onload = function() {
     drawRoad();
 
 
-
-
-
-
-
-
-      // car stuff
-
-      //do the boundary shit here.
   let car = {
     h: 100,
     w: 30,
     x: width/2-25,
     y: height-150,
-    moveUp:    function() { this.y -= 25 },
-    moveDown:  function() { this.y += 25 },
-    moveLeft:  function() { this.x -= 25 },
-    moveRight: function() { this.x += 25 }
+    moveLeft:  function() {
+      if (this.x-25 > 0) this.x -= 25 
+      },
+    moveRight: function() {
+      if (this.x+75 < width) this.x += 25 
+      }
   }
 
 
@@ -77,8 +70,6 @@ window.onload = function() {
 
   document.onkeydown = function(e) {
     switch (e.keyCode) {
-      case 38: car.moveUp();    console.log('up',    car); break;
-      case 40: car.moveDown();  console.log('down',  car); break;
       case 37: car.moveLeft();  console.log('left',  car); break;
       case 39: car.moveRight(); console.log('right', car); break;
     }
@@ -101,15 +92,23 @@ window.onload = function() {
 
 
 
-  inBounds(x, y) {
-    if (rect1.x < rect2.x + rect2.width &&
-      rect1.x + rect1.width > rect2.x &&
-      rect1.y < rect2.y + rect2.height &&
-      rect1.y + rect1.height > rect2.y) {
-       // collision detected!
-   }
+  function createObstacles() {
+    constructor() = {
+      this.name =
+    
+    }
+
+    ctx.fillStyle="black"
+    ctx.fillRect(randomWidth, 0, randomWidth+50, 40);
   }
 
+  function updateObstacles() {
+
+  }
+
+  createObstacles();
+  setInterval(createObstacles, 500)
+  setInterval(updateObstacles, 200)
   }
 
 
